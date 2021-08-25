@@ -1,11 +1,11 @@
-//import 'package:animated_text_kit/animated_text_kit.dart';
 import 'package:flutter/material.dart';
 import 'package:portfolio/constants.dart';
-import 'package:portfolio/models/Project.dart';
+import 'components/education.dart';
 import 'package:portfolio/screens/main/main_screen.dart';
 import 'components/home_banner.dart';
 import 'components/projects.dart';
-import '../../models/Education.dart';
+import '../../models/Experience.dart';
+
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({Key? key}) : super(key: key);
@@ -15,9 +15,8 @@ class HomeScreen extends StatelessWidget {
     return MainScreen(
       children: [
         AnimatedHomeBanner(),
-        Projects(),
-        //SizedBox(height: defaultPadding/3,),
-        
+        internship(),
+        Projects(),        
         education(),
         Divider(),
       ],
@@ -26,8 +25,8 @@ class HomeScreen extends StatelessWidget {
   }
 }
 
-class education extends StatelessWidget {
-  const education({
+class internship extends StatelessWidget {
+  const internship({
     Key? key,
   }) : super(key: key);
 
@@ -38,30 +37,27 @@ class education extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Divider(),
-      Text(
-        "Education",
-        style: Theme.of(context).textTheme.headline6,
-      ),
-      SingleChildScrollView(
-        scrollDirection: Axis.horizontal,
-        child: Row(
-          children: List.generate(my_education.length, (index) => Padding(
-            padding: EdgeInsets.only(right: defaultPadding),
-            child: EducationCard(ind: index),
-          ))
-        ),
-      )
-
-
+          Text(
+            "Experience",
+            style: Theme.of(context).textTheme.headline6,
+          ),
+          Padding(padding: EdgeInsets.only(bottom: defaultPadding/2)),
+          SingleChildScrollView(
+            child: Row(
+              children: List.generate(my_experience.length, (index) => Padding(
+              padding: EdgeInsets.only(right: defaultPadding),
+              child: internshipCard(ind: index),
+            )),
+            ),
+          )
         ],
       ),
     );
   }
 }
 
-class EducationCard extends StatelessWidget {
-  const EducationCard({
+class internshipCard extends StatelessWidget {
+  const internshipCard({
     Key? key,
     required this.ind,
   }) : super(key: key);
@@ -78,17 +74,17 @@ class EducationCard extends StatelessWidget {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Text(
-            my_education[ind].name!,
+            my_experience[0].name,
             style: Theme.of(context).textTheme.subtitle2!,
           ),
           SizedBox(height: defaultPadding/4,),
           Text(
-            my_education[ind].timeperiod!,
+            my_experience[0].tag,
           ),
           SizedBox(height: defaultPadding,),
           Text(
-            my_education[ind].score!,
-            maxLines: 4,
+            my_experience[0].description,
+            maxLines: 6,
             overflow: TextOverflow.ellipsis,
           )
         ],

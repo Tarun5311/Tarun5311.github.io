@@ -12,10 +12,6 @@ List<Project> my_projects = [
     description: 'My portfolio website which is responsive. This is built using flutter.'
   ),
   Project(
-    title: 'NP Lab - Web Application',
-    description: 'Dashboard'
-  ),
-  Project(
     title: 'IAS Architecture - Terminal Based Application',
     description: 'A python program that replicates the functionality of IAS architecture'
   ),

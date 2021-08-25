@@ -17,6 +17,8 @@ class Projects extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
+          Divider(),
+          Padding(padding: EdgeInsets.symmetric(vertical: defaultPadding/2)),
           Text(
             "My Projects",
             style: Theme.of(context).textTheme.headline6!.copyWith(

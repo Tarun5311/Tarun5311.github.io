@@ -36,6 +36,9 @@ class AnimatedHomeBanner extends StatelessWidget {
                     children: [
                      Tag(custom: "<",),
                      SizedBox(width: defaultPadding/2,),
+                     Text(
+                       'I am a '
+                     ),
                       AnimatedTextKit(
                         animatedTexts: [
                           TyperAnimatedText(

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:portfolio/responsive.dart';
 import '../../../constants.dart';
 import '../../../models/Project.dart';
 import 'package:flutter/src/widgets/scroll_view.dart';
@@ -26,19 +27,42 @@ class Projects extends StatelessWidget {
             ),            
           ),
           SizedBox(height: defaultPadding/1.5,),
-    GridView.builder(
+          Responsive(
+            mobile: ProjectGridBuilder(crossAxisCount: 1,),
+            mobileLarge: ProjectGridBuilder(crossAxisCount: 2, ),
+            desktop: ProjectGridBuilder(),
+            tablet: ProjectGridBuilder(childAspectRatio: 1.1,),
+
+          )
+        ],
+      ),
+    );
+  }
+}
+
+class ProjectGridBuilder extends StatelessWidget {
+  const ProjectGridBuilder({
+    Key? key,
+    this.childAspectRatio = 1.3,
+    this.crossAxisCount = 3,
+
+  }) : super(key: key);
+
+  final int crossAxisCount;
+  final double childAspectRatio;
+
+  @override
+  Widget build(BuildContext context) {
+    return GridView.builder(
       shrinkWrap: true,
       itemCount: my_projects.length,
       gridDelegate: SliverGridDelegateWithFixedCrossAxisCount (
-        childAspectRatio: 1.3,
+        childAspectRatio: childAspectRatio,
         crossAxisSpacing: defaultPadding,
         mainAxisSpacing: defaultPadding,
-        crossAxisCount: 3,
+        crossAxisCount: crossAxisCount,
       ),
       itemBuilder: (context, index) => ProjectCard(project: my_projects[index]),
-    ),
-        ],
-      ),
     );
   }
 }

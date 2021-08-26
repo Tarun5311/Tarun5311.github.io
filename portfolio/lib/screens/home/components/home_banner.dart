@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:animated_text_kit/animated_text_kit.dart';
 import 'package:portfolio/constants.dart';
+import '../../../responsive.dart';
 
 class AnimatedHomeBanner extends StatelessWidget {
   const AnimatedHomeBanner({
@@ -24,18 +25,24 @@ class AnimatedHomeBanner extends StatelessWidget {
               children: [
                 Text(
                   'Hello There! \nWelcome to my portfolio!',
-                  style: Theme.of(context).textTheme.headline3!.copyWith(
+                  style: Responsive.isDesktop(context) 
+                  ? Theme.of(context).textTheme.headline3!.copyWith(
                     fontWeight: FontWeight.bold,
                     color: Colors.white,
-
-                  ),
+                  )
+                  : Theme.of(context).textTheme.headline5!.copyWith(
+                    fontWeight: FontWeight.bold,
+                    color: Colors.white,
+                  )
                 ),
                 DefaultTextStyle(
                   style: Theme.of(context).textTheme.subtitle1!,
                   child: Row(
                     children: [
-                     Tag(custom: "<",),
-                     SizedBox(width: defaultPadding/2,),
+                     if(!Responsive.isMobileLarge(context)) 
+                        Tag(custom: "<",),
+                      if(!Responsive.isMobileLarge(context)) 
+                        SizedBox(width: defaultPadding/2,),
                      Text(
                        'I am a '
                      ),
@@ -56,8 +63,10 @@ class AnimatedHomeBanner extends StatelessWidget {
                           
                         ]
                       ),
-                      SizedBox(width: defaultPadding/2,),
-                      Tag(custom: "</")
+                      if(!Responsive.isMobileLarge(context))
+                        SizedBox(width: defaultPadding/2,),
+                      if(!Responsive.isMobileLarge(context)) 
+                        Tag(custom: "</")
                     ],
                   ),
                 )

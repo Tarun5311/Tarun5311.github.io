@@ -5,6 +5,7 @@ import 'package:portfolio/screens/main/main_screen.dart';
 import 'components/home_banner.dart';
 import 'components/projects.dart';
 import '../../models/Experience.dart';
+import '../../responsive.dart';
 
 
 class HomeScreen extends StatelessWidget {
@@ -67,7 +68,7 @@ class internshipCard extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       width: 400,
-      height: 200,
+      height: 220,
       padding: EdgeInsets.all(defaultPadding),
       color: secondaryColor,
       child: Column(
@@ -84,7 +85,7 @@ class internshipCard extends StatelessWidget {
           SizedBox(height: defaultPadding,),
           Text(
             my_experience[0].description,
-            maxLines: 6,
+            maxLines: Responsive.isMobileLarge(context) ? 4 : 7,
             overflow: TextOverflow.ellipsis,
           )
         ],

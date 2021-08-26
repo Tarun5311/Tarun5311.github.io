@@ -55,8 +55,11 @@ class sidemenu extends StatelessWidget {
                   Container(
                     color: Color(0xFF24242E),
                     child: Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
                       children: [
-                        //IconButton(onPressed: (){}, icon: SvgPicture.asset("assets/icons/github.svg")),
+                        IconButton(onPressed: (){}, icon: SvgPicture.asset("assets/icons/github.svg")),
+                        IconButton(onPressed: (){}, icon: SvgPicture.asset("assets/icons/linkedin.svg")),
+                        
                       ],
                     ),
                   )

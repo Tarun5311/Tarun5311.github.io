@@ -25,6 +25,6 @@ List<Project> my_projects = [
   ),
   Project(
     title: 'Automobile Inventory Management System - Terminal Based Application',
-    description: 'A terminal based inventory management system that is used to maintain a Auto mobile store. The management system has a record of all the raw materials present.This management system can make necessary changes when a raw material is bought or sold or lost'
+    description: 'A terminal based inventory management system that is used to maintain a Auto mobile store. The management system has a record of all the raw materials present and can make necessary changes when a raw material is bought or sold or lost'
   ),
 ];

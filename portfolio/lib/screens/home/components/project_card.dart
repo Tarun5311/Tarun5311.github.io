@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import '../../../constants.dart';
 import '../../../models/Project.dart';
+import '../../../responsive.dart';
 
 class ProjectCard extends StatelessWidget {
   const ProjectCard({
@@ -28,6 +29,9 @@ class ProjectCard extends StatelessWidget {
             style: TextStyle(
               height: 1.5,
             ),
+            maxLines: Responsive.isMobileLarge(context) ? 3 : 4,
+            overflow: TextOverflow.ellipsis,
+
             
           )
         ],
